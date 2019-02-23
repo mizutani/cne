@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  client:
+    build: containers/client/
+    command: npm run dev
+    volumes:
+      - ./client:/app
+    ports:
+      - 3000:3000
+  server:
+    build: containers/server/
+    volumes:
+      - ./server:/app

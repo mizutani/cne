@@ -1,0 +1,16 @@
+FROM elixir:1.8.1-slim
+
+ENV LANG C.UTF-8
+
+RUN set -e \
+  && apt-get update -y -qq \
+  && apt-get install -y -qq \
+  tzdata net-tools
+
+RUN set -e \
+  && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+  && echo "Asia/Tokyo" > /etc/timezone
+
+ENV APP_HOME /app
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
