@@ -9,5 +9,8 @@ services:
       - 3000:3000
   server:
     build: containers/server/
+    command: mix phx.server
     volumes:
       - ./server:/app
+    ports:
+      - 8080:4000
